@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+.data {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.row1{
+  max-height: 450px;
+  overflow-y:scroll ;
+}
+
+.data thead {
+  background-color: white; /* Bleu pour les titres */
+  color: #007bff; /* Texte en blanc */
+  padding: 10px; /* Espace intérieur */
+  border: 1px solid #007bff;
+}
+
+.data tbody {
+  border: 1px solid #ddd; /* Bordure grise */
+  padding: 10px 20px; /* Espace intérieur */
+}
+
+.data tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zébrures */
+}
+form {
+  margin-top: 20px;
+}
+
+input[type="file"] {
+  margin-right: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #597dd2;
+}
+
+
+.welcome-container {
+  width: 50%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.welcome-header {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.welcome-message {
+  font-size: 18px;
+}

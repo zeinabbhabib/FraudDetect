@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload</title>
+  <link rel="stylesheet" href="../static/Fstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <header>Telechargement Fichier</header>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" class="file-input" name="file" accept=".xlsx" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Parcourir le fichier à télécharger</p>
+    </form>
+    <section class="progress-area">
+      <li class="row">
+        <i class="fas fa-file-alt"></i>
+        <div class="content">
+          <div class="details">
+            <span class="name">image_01.png • En cours</span>
+            <span class="percent">50%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        
+      </li>
+    </section>
+    <section class="uploaded-area">
+      {% if result_file %}
+        <!-- Display the table here -->
+        {% set data = read_excel(result_file) %}
+        {{ data.to_html(classes='data', header="true")|safe }}
+      {% endif %}
+    </section>
+    
+  </div>
+  <script src="../static/Fscript.js"></script>
+  <script src="../static/Sessionjs.js"></script>
+</body>
+</html>

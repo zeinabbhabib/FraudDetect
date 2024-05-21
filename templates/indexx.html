@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire d'inscription</title>
+  <script src="https://kit.fontawesome.com/7396c9fb7f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="shortcut icon" type="image/png" href="../static/assetss/images/logos/logoo.jpg" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="/connexion" method="post" class="sign-in-form" id="login-form">
+          <h2 class="title">Connexion</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="email" placeholder="Email" name="email">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Mot de passe" name="password">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <input type="submit" value="Connexion" class="btn solid">
+          <!-- Add a hidden input field to differentiate between regular users and admins -->
+          <input type="hidden" name="admin" value="1">
+
+          <!-- Add a button to toggle between regular user and admin login -->
+          <a href="{{ url_for('admin_login') }}" id="admin-btn" class="admin">Se connecter en tant qu'Admin</a>
+
+          
+        </form>
+       
+
+
+
+
+        <form action="/inscription" method="post" class="sign-up-form">
+          <h2 class="title">Inscription</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Nom" name="nom">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" name="email">
+          </div>
+          <div class=" pass-field input-field ">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Mot de passe" name="password" id="password">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="conteent">
+            <p>Le mot de passe doit contenir :</p>
+            <ul class="requirement-list">
+              <li>
+                <i class="fa-solid fa-circle"></i>
+                <span>Une longueur d'au moins 8 caractères</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle"></i>
+                <span>Au moins un numero (0...9)</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle"></i>
+                <span>Au moins une lettre miniscule (a...z)</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle"></i>
+                <span>Au moins un caractère spécial (!...$)</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle"></i>
+                <span>Au moins une lettre majuscule (A...Z)</span>
+              </li>
+            </ul>
+          </div>
+          <div class=" pass-field input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" onkeyup="checkPassword()" placeholder="Confirmation" name="confirm"
+              id="cnfrm-password">
+            <i class="fa-solid fa-eye"></i>
+            <p id="message"></p>
+          </div>
+          <div class="g-recaptcha" data-sitekey="{{ config.RECAPTCHA_PUBLIC_KEY }}"></div>
+          <input type="submit" value="Inscription" class="btn solid" id="submitBtn" onclick="validatePassword()">
+          <p id="messagee"></p>
+
+        </form>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>Nouveau Membre?</h3>
+          <p>"Déjouez la fraude dès aujourd'hui ! Inscrivez-vous pour une détection efficace des fraudes avec
+            FraudDetect."</p>
+          <button class="btn transparent" id="sign-up-btn">S'inscrire</button>
+        </div>
+        <img src="../static/undraw_data_trends_re_2cdy.svg" class="image">
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>Déja inscrit?</h3>
+          <p>"Connectez-vous dès maintenant pour protéger votre réseau contre la fraude avec FraudDetect." </p>
+          <button class="btn transparent" id="sign-in-btn">Se connecter</button>
+        </div>
+        <img src="../static/undraw_fill_form_re_cwyf.svg" class="image">
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/script.js" defer></script>
+  <script src="../static/Sessionjs.js"></script>
+  
+
+</body>
+
+</html>

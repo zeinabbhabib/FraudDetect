@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../static/styless.css">
+    <link rel="shortcut icon" type="image/png" href="../static/assetss/images/logos/logoo.jpg" />
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Administrateur</h2>
+        </div>
+        <form action="/admin_login" method="post">
+            <div class="form-group">
+                <label for="username">Nom Utilisateur</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe </label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input type="submit" value="Se connecter">
+        </form>
+        <div class="footer">
+          <p>Pas un Administrateur ? <a href="{{ url_for('login') }}">Se connecter en tant qu'Utilisateur</a></p>
+
+        </div>
+    </div>
+    
+</body>
+<script src="../static/Sessionjs.js"></script>
+
+</html>

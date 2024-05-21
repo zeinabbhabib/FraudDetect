@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire d'inscription</title>
+  <script src="https://kit.fontawesome.com/7396c9fb7f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="shortcut icon" type="image/png" href="../static/assetss/images/logos/logoo.jpg" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="" method="post" class="sign-in-form" id="login-form">
+          <h2 class="title">Connexion</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="email" placeholder="Email" name="email">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Mot de passe" name="password">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <input type="submit" value="Connexion" class="btn solid">
+          <!-- Add a hidden input field to differentiate between regular users and admins -->
+          <input type="hidden" name="admin" value="1">
+
+          <!-- Add a button to toggle between regular user and admin login -->
+          <a href="{{ url_for('admin_login') }}" id="admin-btn" class="admin">Se connecter en tant qu'Admin</a>
+
+          
+        </form>
+       
+
+
+
+
+       
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>Etes-vous un Administrateur?</h3>
+          
+          
+        </div>
+        <img src="../static/undraw_data_trends_re_2cdy.svg" class="image">
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>Déja inscrit?</h3>
+          <p>"Connectez-vous dès maintenant pour protéger votre réseau contre la fraude avec FraudDetect." </p>
+          <button class="btn transparent" id="sign-in-btn">Se connecter</button>
+          <p>Pas un Administrateur ? <a href="{{ url_for('login') }}">Se connecter en tant qu'Utilisateur</a></p>
+        </div>
+        <img src="../static/undraw_fill_form_re_cwyf.svg" class="image">
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="../static/Sessionjs.js"></script>
+</body>
+
+</html>
